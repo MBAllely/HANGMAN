@@ -1,19 +1,22 @@
-//game runs and stops when user gets 6 incorrect letters. ideas for added functions:
-  //alert if user enters something that isnt a letter (including blanks bc that breaks it).
+//ideas for added functions:
   //alert if they've already guessed that letter.
-  //alert if they enter more than one letter at a time
   //condition for winning w/ alert
   //ability to guess the whole word
 
-
-// this was our attempt to incorporate objects. maybe use it if you want the user to be able to play more than one game and track wins??//
-
-
 var Game = {
   guessedLetters: [],
-  score: 0,
-  winorlose: [],
-}
+};
+
+// function Game(guessedLetters, score)
+//   this.guessedLetters = guessedLetters;
+//   // this.score = score;
+//   // this.word = word;
+// }
+//
+// function Player(wins, losses) {
+//   this.wins = wins;
+//   this.losses = losses;
+// }
 
 
 //global variables//
@@ -57,7 +60,6 @@ $(document).ready(function() {
   getRandomWord(); //chooses random word on page load//
   var puzzleString = puzzleArray.join(" ");
   $("span#puzzle-array").text(puzzleString);
-  // $("span#puzzle-array").text(puzzleString); //prints blanks to page//
     $("form#hangman").submit(function(event) {
       var searchLetter = $("input#letter").val(); //uses user input to define the letter to search//
       var searchLetter = searchLetter.toLowerCase(); //forces input to be lowercase//
@@ -71,7 +73,7 @@ $(document).ready(function() {
           Game.guessedLetters.push(" " + searchLetter); //adds guessed letter to array of previous guesses//
           var results = letterQuest(wordSplit, searchLetter);
         } // end if input > 1 conditional
-      }else {
+      } else {
         alert("Enter a letter jackass");
       }
 
@@ -92,6 +94,9 @@ $(document).ready(function() {
         alert("YOU LOSE, CHUMP");
       }
 
+      if (puzzleArray.indexOf("_") === -1) {
+        alert("YOU WIN!!");
+      }
     $("input#letter").val("");
 
   });
