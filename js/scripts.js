@@ -18,6 +18,18 @@ var Game = {
 //   this.losses = losses;
 // }
 
+var board = [
+'  +---+   \n  |   |   \n      |   \n      |   \n      |   \n      |   \n========= \n',
+'  +---+   \n  |   |   \n  0   |   \n      |   \n      |   \n      |   \n========= \n',
+'  +---+   \n  |   |   \n  0   |   \n  |   |   \n      |   \n      |   \n========= \n',
+'  +---+   \n  |   |   \n  0   |   \n /|   |   \n      |   \n      |   \n========= \n',
+'  +---+   \n  |   |   \n  0   |   \n /|\\  |   \n      |   \n      |   \n========= \n',
+'  +---+   \n  |   |   \n  0   |   \n /|\\  |   \n /    |   \n      |   \n========= \n',
+'  +---+   \n  |   |   \n  0   |   \n /|\\  |   \n / \\  |   \n      |   \n========= \n'
+];
+
+// for i in range(len(borad)):
+// 	print board[i]
 
 //global variables//
 
@@ -48,7 +60,7 @@ var letterQuest = function(wordSplit, searchLetter){
       }
     }
     if (puzzleArray.indexOf(searchLetter) === -1) {
-      score = score - 1;
+      score += 1;
     }
     var puzzleString = puzzleArray.join(" ");
     return puzzleString;
@@ -78,9 +90,10 @@ $(document).ready(function() {
       }
 
 
+
       $("span#puzzle-array").text(results);
       $("span#guessed-letters").text(Game.guessedLetters);
-      $("span#guesses-left").text("You have " + (6 + score) + " tries left");
+      $("span#guesses-left").text("You have " + (6 - score) + " tries left");
 
       //if you wanna watch...
       // console.log(results);
@@ -89,8 +102,9 @@ $(document).ready(function() {
       console.log(score);
 
       event.preventDefault();
+      $("span#image").text(board[score]);
 
-      if (score <= -6) {
+      if (score >= 6) {
         alert("YOU LOSE, CHUMP");
       }
 
