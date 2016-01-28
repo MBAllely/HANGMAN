@@ -72,6 +72,7 @@ $(document).ready(function() {
   getRandomWord(); //chooses random word on page load//
   var puzzleString = puzzleArray.join(" ");
   $("span#puzzle-array").text(puzzleString);
+  $("span#image").text(board[score]);
     $("form#hangman").submit(function(event) {
       var searchLetter = $("input#letter").val(); //uses user input to define the letter to search//
       var searchLetter = searchLetter.toLowerCase(); //forces input to be lowercase//
