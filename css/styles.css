@@ -1,7 +1,22 @@
+body {
+  background-image: url("../spoopy.png");
+  background-repeat: repeat;
+}
+
 span {
   font-size: 25px;
 }
 
+.jumbotron {
+  text-align: center;
+  background-image: url("../cartographer.png");
+  color: #808080;
+}
 .puzzle {
   text-align: center;
+}
+
+.image {
+  display: inline-block;
+  margin-left: 42.3%;
 }

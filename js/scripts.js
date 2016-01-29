@@ -1,13 +1,13 @@
 //ideas for added functions:
   //alert if they've already guessed that letter.
-  //condition for winning w/ alert
   //ability to guess the whole word
+  //show mystery word when user loses
 
 var Game = {
   guessedLetters: [],
 };
 
-// function Game(guessedLetters, score)
+// function Game(guessedLetters, score) {
 //   this.guessedLetters = guessedLetters;
 //   // this.score = score;
 //   // this.word = word;
@@ -33,7 +33,7 @@ var board = [
 
 //global variables//
 
-var words = ["hello","goodbye", "marmalade"] //library of words//
+var words = ["hello","goodbye", "marmalade", "purloin", "spitoon", "resignation", "cranberry", "flintlock", "dwindle", "blunt", "scrum", "chaff", "spunk", "silverfish", "thrall", "flashbang", "smattering", "chump", "sycophant"];  
 var wordSplit = [];    //word split into array of letters//
 var puzzleArray = [];  //array of blanks//
 var score = 0;         //user score//
@@ -41,7 +41,7 @@ var score = 0;         //user score//
 //generates random word from words array and splits the characters up in its own array called wordSplit; then pushes the corresponding amount of underscores to the puzzleArray//
 
 function getRandomWord() {
-var randomWordIndex = Math.floor(Math.random() * (3 - 0)) + 0;
+var randomWordIndex = Math.floor(Math.random() * (words.length - 0)) + 0;
   var word = words[randomWordIndex];
   wordSplit = word.split('');
     for (var i = 0; i < wordSplit.length; i++) {
@@ -59,7 +59,7 @@ var letterQuest = function(wordSplit, searchLetter){
         puzzleArray[i] = searchLetter; //replaces the blanks in the puzzle array with the matching index//
       }
     }
-    if (puzzleArray.indexOf(searchLetter) === -1) {
+    if (puzzleArray.indexOf(searchLetter) === -1) { //if searchLetter is not in wordSplit, adds to your score
       score += 1;
     }
     var puzzleString = puzzleArray.join(" ");
