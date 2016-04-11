@@ -1,6 +1,6 @@
-# insertApplicationName
+# Hangman
 
-#### briefDescription, dateOfCurrentVersion_
+#### Classic hangman game, 1/16_
 
 #### By _**insertContributorNumberOne, insertContributorNumberTwo **_
 
